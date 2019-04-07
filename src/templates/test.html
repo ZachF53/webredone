@@ -1,0 +1,139 @@
+<div class="form-row">
+        <div class="col">
+            <label for="firstname1">First Name</label>
+            <input class="form-control" type="text" name="firstname1" placeholder="First name" required="">
+        </div>
+        <div class="col">
+            <label for="lastname1">Last Name</label>
+            <input class="form-control" type="text" name="lastname1" placeholder="Last name" required="">
+        </div>
+    </div>
+    <br>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="email1">Email</label>
+            <input class="form-control" type="email" name="email1" placeholder="Email">
+            <small class="form-text text-dark">
+                Your email will never be distributed without your express consent.
+            </small>
+        </div>
+    </div>
+    <br>
+    <div class="form-row">
+            <div class="form-group col">
+                <label for="service1">services/Additional Services</label>
+                <input class="form-control" type="text" name="service1" placeholder="What services/Additional Services are you interested in?">
+            </div>
+        </div>
+    <br>
+    <div class="form-group">
+        <label for="message1">Additional Information</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="message1" rows="3" required=""></textarea>
+        <small class="form-text text-dark">
+            Please provide as much information as you can.
+        </small>
+    </div>
+    <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+
+
+
+
+
+
+    send_mail(
+        'Subject here', 
+        'Here is the message.', 
+        'football45353@gmail.com', 
+        ['haxizicaku@red-mail.info'], 
+        fail_silently=False
+    )
+
+
+    form = ContactForm(request.POST or None)
+
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        service = request.POST.get("service")
+        message = request.POST.get("message")
+
+        subject = 'Contact Form Received'
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = [settings.DEFAULT_FROM_EMAIL]
+
+        context = {
+            'name': name,
+            'email': email,
+            'service': service,
+            'message': message
+        }
+
+        contact_message = get_template('portfolio/contact_message.txt').render(context)
+
+
+        send_mail(
+            subject, 
+            contact_message, 
+            from_email, 
+            [to_email], 
+            fail_silently=False
+        )
+
+        return redirect('portfolio/service.html')
+
+
+
+
+
+
+
+
+
+
+        def save(self):
+        image = super(Portfolio, self).save()
+
+        image = Image.open(image.file)
+        image = image.resize((400, 400), Image.ANTIALIAS)
+        image.save(image_file_path)
+
+        return image
+
+
+        #image = models.ImageField(
+    #    upload_to='portfolio/static/img', 
+    #    null=True, 
+    #    blank=True, 
+        #width_field="width_field", 
+        #height_field="height_field"
+    #)
+    #width_field = models.IntegerField(default=200)
+    #height_field = models.IntegerField(default=200)
+
+
+    class Port(forms.ModelForm):
+    class Meta:
+        model = Portfolio
+        fields = ('image',)
+
+    def save(self):
+        portfolio = super(Port, self).save() 
+       
+        image = Image.open(portfolio.file)
+        image = image.resize((200,200), Image.ANTIALIAS)
+        image.save(portfolio.file.path)
+
+
+        def save(self):       
+        image = Image.open(self.image)
+        image = image.resize((200,200), Image.ANTIALIAS)
+        image = models.ImageField(upload_to='portfolio/static/img/port', max_length=100)
+
+        def save(self):
+        super().save()  # saving image first
+
+        image = Image.open(self.image.path) # Open image using self
+
+        if image.height > 200 or image.width > 200:
+            image = image.resize((200,200), Image.ANTIALIAS)
+            image.save(self.image.path)

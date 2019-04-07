@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="">
+<br>
+<!--START-->
+
+    <div class="container">
+        <div class="jumbotron bg-dark text-light">
+            <div class="container text-center">
+                <span class="d-none d-sm-none d-md-block"><h1 class="display-4 text-blue">Here are some of our happy clients!</h1></span>
+                <p class="lead text-yellow">As you can tell there are not alot of things to show. 
+                    You can help that! With your help I can promote your website here 
+                    and you can get your business off of facebook and fill out this page!
+                </p>
+                <br>
+                <p class="lead"><a class="btn btn-success btn-lg" href="/contact" role="button">Contact Us</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+            <div class="row">
+
+                    {% for port in portfolio %}
+                        <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 540px; margin-right: 5px; margin-left: 5px; padding-bottom: 0%;">
+                            <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{port.image.url}}" class="card-img d-none d-sm-block" alt="{{port.name}}" style="padding-top:6.5px; padding-left:5px;">
+                            </div>
+                            <div class="col-md-8 text-center">
+                                <div class="card-body">
+                                <h5 class="card-title text-blue">{{port.name}}</h5>
+                                <p class="card-text text-yellow">
+                                    Feel free to go check out their website at: <a href="{{port.url}}" target="_blank">{{port.site}}</a> 
+                                    This is a great way to get an idea for your desgin!
+                                </p>
+                                <p class="card-text"><small class="">They rated me: 
+                                    <span class="text-blue">{{port.rate}}</span> out of 
+                                    <span class="text-yellow">5.0!</span> </small></p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+            </div>
+
+    </div>
+    
+<!--END-->
+</div>
+{% endblock %}

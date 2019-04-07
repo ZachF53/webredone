@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container-fluid"> <!--START-->
+    
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"> 
+        <h1 class="display-4">Services</h1>
+        <p class="lead">
+            All services can be customized to your preference. If you have any questions please 
+            contact me and I will be more than happy to discuss it with you.
+        </p>
+    </div>
+
+    <div class="row text-center">
+        {% for serv in service %}
+
+            <div class="col-sm-4" style="margin-bottom:2rem;">
+                <div class="card bg-dark">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-{{serv.text}}">{{serv.name}}</h4>
+                    </div>
+                    <div class="card-body bg-{{serv.background}}">
+                        <p class="card-text">{{serv.message}}</p>
+                        <a class="btn btn-lg btn-block btn-success" href="/contact" role="button">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Additional Services</h1>
+        <p class="lead text-center">
+            Here are a few other services that I provide. These are completly optional and are not required.
+            I will even provide these services even if you don't chose a web service.
+        </p>
+    </div>
+
+    <div class="row text-center">
+        {% for add in additional %}
+
+            <div class="col-sm-4" style="margin-bottom:2rem;">
+                <div class="card bg-dark">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-{{add.text}}">{{add.name}}</h4>
+                    </div>
+                    <div class="card-body bg-{{add.background}}">
+                        <p class="card-text">{{add.message}}</p>
+                        <a class="btn btn-lg btn-block btn-success" href="/contact" role="button">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+</div><!--END-->
+{% endblock %}

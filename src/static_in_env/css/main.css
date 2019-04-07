@@ -1,0 +1,35 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+
+.text-yellow{
+    color: #efc137;
+  }
+.bg-yellow{
+    background-color: #efc137;
+}
+
+.text-blue{
+    color: #1395c5;
+  }
+.bg-blue{
+    background-color: #1395c5;
+}
+
+
+a .fb {
+    color: #3b5998;
+    background-color: #031231;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+a:hover .fb{
+    color: #031231;
+    background-color: #3b5998;;
+}

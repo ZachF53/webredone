@@ -1,0 +1,166 @@
+{% extends 'layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+<div class="">
+    <br class="">
+    <div class="container-fluid">
+        <img src="{% static 'img/main.png' %}" class="img-fluid mx-auto" alt="Responsive image" width="100%" height="100%">
+    </div>
+    <br class="d-none d-sm-none d-md-block">
+    <br class="d-none d-sm-none d-md-block">
+    <div class="container-fluid">
+        <div class="jumbotron text-center bg-dark text-light pb-3 pt-3">
+            <blockquote class="blockquote">
+                <p class="mb-0">
+                    “<span class="text-yellow">There are three responses to a piece of design</span>—<span class="text-blue">yes, no, and WOW! Wow is the one to aim for.</span>”
+                </p>
+                <footer class="blockquote-footer">Milton Glaser</footer>
+            </blockquote>
+            <p class="lead">
+                Here at First Response, I strive to make your experince unique and unforgetable by making That
+                "WOW" website. Your website represents your business, this is the first thing that
+                a potential customer sees and you need to WOW them on first site.
+            </p>
+            <hr class="my-4">
+            <p>Get a free quote today!</p>
+            <!--START MODAL-->
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                Free Quote
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog text-center" role="document">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Free Quote</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-secondary">
+                            <div class="container">
+                                    <form action="." method="POST">
+                                        {% csrf_token %}
+                                        {{ form|crispy }}
+                                        <button class="btn btn-lg btn-block btn-success" type="submit" value="Submit">Submit</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END MODAL-->
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="text-center card bg-dark text-light mb-4 shadow-sm">
+            <div class="card-header textmain">
+                <h4 class="my-0 display-4 text-blue">My Design Process</h4>
+            </div>
+            <div class="card-body bg-secondary">
+                <div class="card bg-dark text-light mb-4 shadow-sm">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal text-yellow">Concept</h4>
+                    </div>
+                    <div class="card-body bg-blue text-dark">
+                        <p>
+                            This is where I meet with you to dicuss what kind of website you would like and discuss
+                            a few different designs.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-dark text-light mb-4 shadow-sm">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal text-blue">Layout</h4>
+                    </div>
+                    <div class="card-body bg-yellow text-dark">
+                        <p>
+                            After the concept phase I put togehter a basic layout to show you. During this phase we 
+                            can still adjust your website however you would like.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-dark text-light mb-4 shadow-sm">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal text-yellow">Creation through Responsiveness</h4>
+                    </div>
+                    <div class="card-body bg-blue text-dark">
+                        <p>
+                            After you have had the chance to look at the basic design, I will start working on the coding.
+                            My personal belief and practice is to make your website accessible on ALL platforms, starting 
+                            with mobile devices.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-dark text-light mb-4 shadow-sm">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal text-blue">Submission</h4>
+                    </div>
+                    <div class="card-body bg-yellow text-dark">
+                        <p>
+                            After completing your website I will showcase it for you and give you all the files needed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="text-center">Get started in 4 easy steps!</h4>
+    <br>
+    <div class="container-fluid">
+        <div class="card-deck mb-3 text-center">
+            <div class="card bg-dark mb-3 shadow-sm">
+                <div class="card-header">
+                <h4 class="my-0 font-weight-normal text-blue">Step One</h4>
+                </div>
+                <div class="card-body bg-yellow text-dark">
+                <p>
+                    To start off you need to know what exactly you want. A website is your first impression and you 
+                    need to make sure it will blow your customers away.
+                </p>
+                </div>
+            </div>
+            <div class="card bg-dark text-light mb-3 shadow-sm">
+                <div class="card-header">
+                <h4 class="my-0 font-weight-normal text-yellow">Step Two</h4>
+                </div>
+                <div class="card-body bg-blue text-dark">
+                <p>
+                    Once you have thought about your website take a look the services I have. There are several different
+                     options I can provide, from a fully custom website to a quick and easy Wix Website.
+                </p>
+                </div>
+            </div>
+            <div class="card bg-dark text-light mb-3 shadow-sm">
+                <div class="card-header">
+                <h4 class="my-0 font-weight-normal text-blue">Step Three</h4>
+                </div>
+                <div class="card-body bg-yellow text-dark">
+                    <br>
+                    <p>
+                        After you have looked around get a 
+                    </p>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                        Free Quote
+                    </button>
+                </div>
+            </div>
+            <div class="card bg-dark text-light mb-3 shadow-sm">
+                <div class="card-header">
+                <h4 class="my-0 font-weight-normal text-yellow">Step Four</h4>
+                </div>
+                <div class="card-body bg-blue text-dark">
+                    <p>
+                        Once I have contacted you and we have set up an agreement all you need to do is sign the agreement,
+                         sit back and relax until I have finished.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--END-->
+{% endblock %}
